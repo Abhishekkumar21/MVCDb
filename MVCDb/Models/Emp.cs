@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+#nullable disable
+
+namespace MVCDb.Models
+{
+    public partial class Emp
+    {
+        [Display(Name = "Emp Code")]
+        public int Id { get; set; }
+        [Display(Name = "Emp Name")]
+        [Required(ErrorMessage = " Name cannot be blank.")]
+        public string Name { get; set; }
+        [Display(Name = "Salary")]
+        [Range(10000,90000,ErrorMessage = "Salary must be within 10000 and 90000")]
+        public int? Salary { get; set; }
+        [Display(Name = "Department")]
+        public int? Deptid { get; set; }
+        [DataType(DataType.Date)]
+
+        public DateTime? Dob { get; set; }
+        public string Email { get; set; }
+
+        public virtual Dept Dept { get; set; }
+    }
+}
